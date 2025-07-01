@@ -1,0 +1,12 @@
+\mychapter{5}{GLOE-seq}
+\label{chap:GLOEseq}
+GLOE-seq is a versatile method to capture various DNA lesions, though it focuses primarily on single-stranded breaks \cite{GLOEseq}. This technique is based on genome-wide ligation of 3'-OH with the logic being that a DNA lesion such as a single-strand break (SSB) will generate both a 3'-OH and 5'-P ends. The technique thus captures one of those DNA lesion products and quantifies it. This enables GLOE-seq to capture any lesion which produces a 3'-OH end, however this toolbox will focus on it's applications to single-strand breaks.
+
+\section{Two different approaches \label{GLOEseq_direct_indirect}}
+This method boasts two approaches titled the indirect (default) approach and direct approach. The indirect approach identifies the position immediately upstream of a detected 3'-OH, effectively marking it's position/location. The direct approach is used to identify the nucleotide immediately downstream of a 3'-OH which serves as a means to map the positions of modified bases which have been cleaved at the 5' end. Since the focus of this toolbox is the quantification and mapping of SSBs we forego the inclusion of the direct approach.\\
+Additionally, GLOEseq originally offers a variety of possibilities in regards to the tools that are used, for example a user could choose to use either cutadapt or trimmomatic as trimmers (see \autoref{sec:trimming}). In this toolbox we restrict GLOEseq to a singular use, in this example it is restricted to trimmomatic.
+
+\section{Data processing \label{GLOEseq_data_processing}}
+*Includes peak calling in the pipeline
+
+\section{Data analysis \label{GLOEseq_data_analysis}}

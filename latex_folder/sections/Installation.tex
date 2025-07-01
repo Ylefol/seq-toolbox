@@ -1,0 +1,14 @@
+\mychapter{1}{Installation} 
+\label{chap:Install}
+The installation utilizes several elements as unfortunately not both the tools used in the data processing and the tools used in the analysis cannot be reliably contained within a single environment. We divide this in two types of environment, a conda environment and a R environment. The conda environment covers the data processing side of the seq-toolbox while the R environment covers the data analysis side of things.
+
+\section{Conda environments \label{sec:conda}}
+In programming an environment is a self-contained isolated space where we can install specific versions of specific tools/packages. Having these tools stored in an environment means that one can easily provide a working environment to someone else, and that someone else will have the same tools and versions as was initially added into the environment.\\
+Conda itself is a tool for managing environments. It was initially designed for Python however it has now been extended to R. This toolbox utilizes conda to manage python based data processing tools such as FastQC and Bowtie.\\
+For more information, one can browse the conda website: \url{https://docs.conda.io/projects/conda/en/stable/}.\\
+\section{Activating an environment}
+Conda allows you to create multiple environments. In the case of this toolbox we have created one environment called `seq-toolbox'. To use this environment it must first be activated, this is accomplished by using a particular command in the terminal \autoref{sec:terminal}, as seen below:\\
+\begin{lstlisting}
+conda activate seq-toolbox
+\end{lstlisting}
+Once you have done this, the terminal should show that you have entered the inputted environment name.

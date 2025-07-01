@@ -1,0 +1,11 @@
+\mychapter{3}{CHIPseq}
+\label{chap:CHIPseq}
+Chromatin immunoprecipitation (ChIP) seq is widely used to analyse protein interactions with DNA. In it's wide use it also comes in a variety of flavours/lab protocols, although various lab protocols usually utilize the same bioinformatic analysis. The basic analysis generally consists of a quality control, trimming of fastq files, aligning to a reference genome, removing blacklisted regions (optional and dependant on reference genome used), running another set of quality controls on the BAM files, followed by the creation of bigwig files and peak calling. Specifically the tools used are fastqc \cite{fastqc}, fast screen \cite{fast_screen}, trimmomatic \cite{bolger2014trimmomatic}, bowtie2 \cite{bowtie2}, qualimap \cite{qualimap,qualimap2}, and MACS \cite{MACS3}.
+
+\section{Preparing and launching a run \label{sec:run_prep_CHIP}}
+The CHIPseq and RNAseq pipelines are prepared and launched in the same way. Only the output changes. For this purpose we direct readers towards \nameref{sec:run_prep_RNA} to see how to prepare and launch a Chipseq (or RNAseq) run. Note that Chipseq does not utilise STAR aligner and therefore the caveat related to that aligner do not exist for this pipeline.
+
+\section{Navigating the results}
+The results are found in the same location as where the run\_script.sh file is found. This folder will contain a number of sub-folders based on the number of samples put through the pipeline. Each folder is organized in the same way. `outdata' contains the basic output data, of interest may be the BAM files, both their sorted and deduplicated counter parts. The `QC\_results' folder contains the fastqc, fast screen, and qualimap (bamQC) results. Finally the `peaks\_bw\_bed' contains bw files used for visualisations in programs such as Integrative Genome Viewer (IGV) \cite{thorvaldsdottir2013integrative}. This folder also contains the bed files which show the results of peak calling. These files can also be used in IGV, however they are initially intended to be used for the data analysis.
+\section{Data analysis \label{sec:chip_data_analysis}}
+Data analysis of Chipseq is more or less the same as sBLISS - I'll have to merge them together in some way or another.

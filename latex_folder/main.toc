@@ -1,0 +1,61 @@
+\contentsline {chapter}{Installation}{4}{chapter*.5}%
+\contentsline {section}{\numberline {1.1}Conda environments }{4}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Activating an environment}{4}{section.1.2}%
+\contentsline {chapter}{sBLISS}{5}{chapter*.6}%
+\contentsline {section}{\numberline {2.1}Scan for Matches }{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Adaptor anatomy }{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Verify Fastq files }{6}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Data processing }{8}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Bash script for sample file}{9}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}Peak calling }{11}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Data analysis }{11}{section.2.6}%
+\contentsline {chapter}{CHIPseq}{12}{chapter*.13}%
+\contentsline {section}{\numberline {3.1}Preparing and launching a run }{12}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Navigating the results}{12}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Data analysis }{13}{section.3.3}%
+\contentsline {chapter}{RNAseq}{14}{chapter*.14}%
+\contentsline {section}{\numberline {4.1}Preparing a run }{14}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}STAR aligner caveat}{15}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Adding samples to a run }{15}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Launching the script }{16}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Navigating the results }{16}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Data analysis }{16}{section.4.4}%
+\contentsline {chapter}{GLOE-seq}{17}{chapter*.15}%
+\contentsline {section}{\numberline {5.1}Two different approaches }{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Data processing }{17}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Data analysis }{17}{section.5.3}%
+\contentsline {chapter}{Quality Control}{18}{chapter*.16}%
+\contentsline {section}{\numberline {6.1}FastQC }{18}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Per sequence quality }{19}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Per base sequence content }{19}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Per sequence GC content }{20}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Per base N content }{21}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Sequence length distribution }{21}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.6}Sequence Duplication Levels }{21}{subsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.1.7}Overrepresented sequences }{22}{subsection.6.1.7}%
+\contentsline {subsection}{\numberline {6.1.8}Adapter content }{23}{subsection.6.1.8}%
+\contentsline {section}{\numberline {6.2}Fast Screen }{23}{section.6.2}%
+\contentsline {section}{\numberline {6.3}MAPQ}{24}{section.6.3}%
+\contentsline {section}{\numberline {6.4}QualiMap }{25}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Coverage across reference }{25}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Homopolymer Indels }{26}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Mapping Quality Histogram }{27}{subsection.6.4.3}%
+\contentsline {chapter}{Tools}{28}{chapter*.18}%
+\contentsline {section}{\numberline {7.1}Trimming }{28}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Mapping }{29}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Genome reference files}{29}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Included genomes }{30}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Blacklisted regions }{31}{subsection.7.2.3}%
+\contentsline {section}{\numberline {7.3}Sorting with Samtools }{31}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Peak Calling }{32}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Understanding duplicates }{33}{subsection.7.4.1}%
+\contentsline {section}{\numberline {7.5}Counting features }{34}{section.7.5}%
+\contentsline {chapter}{File types}{35}{chapter*.21}%
+\contentsline {section}{\numberline {8.1}Fastq files }{35}{section.8.1}%
+\contentsline {section}{\numberline {8.2}BAM and SAM files }{36}{section.8.2}%
+\contentsline {chapter}{Miscellaneous}{37}{chapter*.22}%
+\contentsline {section}{\numberline {8.1}Single-end vs Paired-end }{37}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Glogg }{37}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Computer terminal }{38}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Dangers of the terminal}{39}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}File permissions}{40}{subsection.8.3.2}%

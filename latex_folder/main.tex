@@ -1,0 +1,196 @@
+\documentclass[11pt]{report}
+
+% Packages
+\usepackage{graphicx} % Required for inserting images
+\usepackage{fancyhdr} % Headers & Footers
+\usepackage{geometry} % Page Size and Margins
+\usepackage{hyperref} % Make Hyper References (Links)
+\usepackage{lastpage}
+\usepackage{afterpage}
+\usepackage{changepage}
+\usepackage{soul}
+\usepackage{todonotes}
+\usepackage{makecell}
+\usepackage{tabularx}
+
+\usepackage{notoccite}
+\usepackage{wrapfig}
+
+\usepackage{csquotes}
+
+%Changes the way the paragraph command behaves, now acts as a subsubsubsection
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+            {-2.5ex\@plus -1ex \@minus -.25ex}%
+            {1.25ex \@plus .25ex}%
+            {\normalfont\normalsize\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4}    % how many sectioning levels to show in ToC
+
+\newcommand{\mychapter}[2]{
+    \setcounter{chapter}{#1}
+    \setcounter{section}{0}
+    \chapter*{#2}
+    \addcontentsline{toc}{chapter}{#2}
+}
+
+\pagestyle{fancy} 
+\cfoot{\hfill \thepage/\pageref{LastPage}}
+\rhead{Yohan's seq-toolbox}
+\lhead{\includegraphics[height=1cm]{CRESCO_1.png}{}}
+
+
+%Changes the way the paragraph command behaves, now acts as a subsubsubsection
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+            {-2.5ex\@plus -1ex \@minus -.25ex}%
+            {1.25ex \@plus .25ex}%
+            {\normalfont\normalsize\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4}    % how many sectioning levels to show in ToC
+
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+% for formal definitions
+\usepackage{framed}
+\usepackage{xcolor}
+% environment derived from framed.sty: see leftbar environment definition
+\definecolor{formalshade}{rgb}{0.95,0.95,1}
+\definecolor{DarkPowderBlue}{rgb}{0.00,0.19,0.56}
+\newenvironment{formal}{%
+  \def\FrameCommand{%
+    \hspace{1pt}%
+    {\color{DarkPowderBlue}\vrule width 2pt}%
+    {\color{formalshade}\vrule width 4pt}%
+    \colorbox{formalshade}%
+  }%
+  \MakeFramed{\advance\hsize-\width\FrameRestore}%
+  \noindent\hspace{-4.55pt}% disable indenting first paragraph
+  \begin{adjustwidth}{}{7pt}%
+  \vspace{2pt}\vspace{2pt}%
+}
+{%
+  \vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+
+
+%Different highlight colors
+\definecolor{amber}{rgb}{1.0, 0.49, 0.0}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+
+\definecolor{custom_green}{RGB}{102,194,165}
+\definecolor{custom_blue}{RGB}{141,160,203}
+
+\DeclareRobustCommand{\hlorange}[1]{{\sethlcolor{amber}\hl{#1}}}
+\DeclareRobustCommand{\hlsteelblue}[1]{{\sethlcolor{airforceblue}\hl{#1}}}
+
+\DeclareRobustCommand{\hlgreen}[1]{{\sethlcolor{custom_green}\hl{#1}}}
+\DeclareRobustCommand{\hlblue}[1]{{\sethlcolor{custom_blue}\hl{#1}}}
+
+%\DeclareRobustCommand{\hlsteelblue}[1]{{\sethlcolor{airforceblue}\hl{#1}}}
+%\DeclareRobustCommand{\hlsteelblue}[1]{{\sethlcolor{airforceblue}\hl{#1}}}
+
+
+
+%Bash scripting
+\usepackage{listings}
+\lstdefinelanguage{bash}{
+  keywords={if, then, else, elif, fi, for, while, do, done, until, case, esac, function, select, in},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={echo, printf, read, cd, ls, pwd, mkdir, rmdir, touch, cp, mv, rm, chmod, chown, grep, awk, sed, find, sudo, kill, ps},
+  ndkeywordstyle=\color{purple}\bfseries,
+  identifierstyle=\color{black},
+  comment=[l]{\#},
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{green},
+  sensitive=true
+}
+
+\lstset{
+  language=bash,
+  frame=single,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{lightgray!20},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2,
+  breaklines=true,
+  breakatwhitespace=true,
+  numbers=left,
+  numberstyle=\tiny,
+  numbersep=5pt,
+}
+
+
+\title{From code to biology \\ A detailed (and simple) guide to the seq-toolbox}
+\author{Yohan Lefol}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Purpose of this guide}
+%\addtocounter{section}{1}
+\thispagestyle{empty}
+This report serves as a means to aid and guide individuals in the use of the seq-toolbox. The general idea is that this guide allows you to use the elements of the seq-toolbox, and if one desires it also offers sections/chapters on the details of the specific elements of the toolbox. This may be beneficial for the interpretation of some results as well as general knowledge of these bioinformatic tools.\\
+This guide is intended to cover the various elements for different sequencing types, such as CHIPseq, sBliss (DSB break seq), and others... For now it only covers sBliss.\todo{May have to rework the section/subsection organization}\\
+
+\section*{Notes to self - will remove eventually}
+\begin{itemize}
+\item Some of these sequencing methods can adjust what they measure (for example, DSBs, Okazaki fragments etc...) so plots will have to adjust for this. Or rather the analysis wrappers will need to know. It shall depend on the process of analysis I guess.
+\item There are some commonalities between several pipelines. I may want to make them all the same in order to simply have one section for things like prepare and launch scripts. Currently CHIP and RNA are the same, sBLISS could be easily adapted. Since Chip is the same as ATAC that one also falls into the lump of `same'.
+\end{itemize}
+\clearpage
+
+%Table of contents
+{\small\tableofcontents}
+\thispagestyle{empty}
+
+\clearpage
+\thispagestyle{empty}
+\clearpage
+
+\fancyhead[RO]{Installation}
+\include{sections/Installation}
+
+\fancyhead[RO]{sBLISS}
+\include{sections/sBLISS}
+
+\fancyhead[RO]{CHIP-seq}
+\include{sections/CHIPseq}
+
+\fancyhead[RO]{bulk RNAseq}
+\include{sections/bulkRNAseq}
+
+\fancyhead[RO]{GLOE-seq}
+\include{sections/GLOEseq}
+
+\fancyhead[RO]{Quality Control}
+\include{sections/QC}
+
+\fancyhead[RO]{Tools}
+\include{sections/Tools}
+
+\fancyhead[RO]{File Types}
+\include{sections/File_types}
+
+\fancyhead[RO]{Miscellaneous}
+\include{sections/Miscellaneous}
+
+\clearpage
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+
+\end{document}

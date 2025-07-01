@@ -1,0 +1,56 @@
+\mychapter{4}{RNAseq}
+\label{chap:RNAseq}
+The bulk RNA sequencing pipeline is relatively straight forward. It begins with a quality control using fastqc \cite{fastqc} and fast screen \cite{fast_screen}, it then utilises STAR aligner \cite{star} to generate the BAM files, from which FeatureCounts \cite{liao2014featurecounts} extracts the counts. Count files give an associated `count' per gene where a count is the number of times a read has been associated/aligned to a given gene. This chapter explains how to run the basic bulk RNAseq data processing pipeline contained within this toolbox.
+
+\section{Preparing a run \label{sec:run_prep_RNA}}
+To utilise this pipeline users will have to prepare a bash file where each line will run one sample. This section will explain the anatomy of such a file. Note that we assume that the file will be called `run\_pipeline.sh'.
+
+\begin{lstlisting}
+#!/bin/usr/env bash
+
+# Define log directory
+log_dir="/logs"
+mkdir -p "$log_dir"  # Ensure the log directory exists
+
+
+log_file="$log_dir/KO_A.log"
+bash /home/yohanl/A_Projects/seq-toolbox/data_processing/bulk_RNAseq.sh KO_A /media/yohanl/Expansion/reference_genomes/STAR/GRCh38/ /media/yohanl/Expansion/Lisa_ALS_dta/cat_data 4 2>&1 | tee "$log_file"
+
+\end{lstlisting}
+The above code shows how we would create a file to run a sample called KO\_A. The first line is what tells the computer that this file is a bash file (it's file extension should be .sh). We then create a log folder where we will store information about the computation of each run. This is particularly useful to trace possible errors. Finally the 9th line is what launches the script for our sample. Let's breakdown the components:
+\begin{enumerate}
+\item \textbf{bash} - This tells the computer to launch this line using bash (launches a script)
+\item \textbf{/home/yohanl/A\_Projects/seq-toolbox/data\_processing/bulk\_RNAseq.sh} - This is the script that will be launched, anything that comes after this line is parameters
+\item \textbf{KO\_A} - The name of the sample. It is very important that the name of the sample given is the same as the name of the Fastq files that will be retrieved (see two items down this list).
+\item \textbf{/media/yohanl/Expansion/reference\_genomes/STAR/GRCh38/} - This is the location of the reference genome to use. Here we use the STAR aligned and provide the GRCh38 reference genome.
+\item \textbf{/media/yohanl/Expansion/Lisa\_ALS\_dta/cat\_data} - This is the directory where the data is located. It is important that the data be named the same as the provided sample name. In this instance there are two files in the directory: KO\_A\_R1.fastq.gz and KO\_A\_R2.fastq.gz.
+\item \textbf{4} - This is the number of threads to use for the computational task.
+
+\item \textbf{2$>$\&1 | tee ``\$log\_file''} - This set of commands directs the output of this script to the log\_file defined on line 8.
+\end{enumerate}
+With this file created, ensure that it is stored in the location where you will want the results saved. As these processing files have a tendency to be quite large I prefer to store this file on an external hard drive with ample space on it. Once you launch this script it will create a `results' folder in the same location where the script is located. 
+
+\subsection{STAR aligner caveat}
+One caveat is that the STAR aligner does create file types which cannot easily be written to a hard drive. For this reason the aligner will write these temporary files to the same location as where the main script is contained (in the above example it would be `/home/yohanl/A\_Projects/seq-toolbox/data\_processing/'. Once the temporary files created, used, and then deleted, the final set of results is moved from this location to the same location as the rest of the results. Due to this, computers running this script should have some free space for these temporary files, something along the lines of ~50Gb should be sufficient. Note that since this pipelines operates one sample at a time, the amount of space to be freed is no multiplied by the number of samples as the files are removed from the computer (to the hard drive) before moving on to the next sample.
+
+\subsection{Adding samples to a run \label{subsec:adding elements}}
+To add more samples to the run file you would simply need to copy and paste lines 8 and 9 and change the sample name of both lines, for example changing them to KO\_B, provided that the KO\_B file(s) are also located in the folder given (see itemized list above, point 5).
+
+\section{Launching the script \label{sec:RNAseq_launch}}
+In order to launch a script one must simply open the console, move to the location of the directory containing the run script (shown above), activate the conda environment and launch the script. With the console open, this is three commands, as seen below.
+\begin{lstlisting}
+cd \media\yohanl\Expansion\seq-toolbox\ALS_proj
+\end{lstlisting}
+\begin{lstlisting}
+conda activate seq-toolbox
+\end{lstlisting}
+\begin{lstlisting}
+bash run_pipeline.sh
+\end{lstlisting}
+
+\section{Navigating the results \label{sec:RNAseq_processing_results}}
+The `results' folder will contain subfolders named based on the given sample names. Each of these folders is organized the same way. They contain an `outdata' folder which contains the raw counts, the count summary, and the log file. In addition it contains the results from the STAR aligner, with the BAM file being of potential interest. STAR also generates its own sets of logs that could be used in debugging. The second subfolder is `QC\_results' which will contain the fastqc \cite{fastqc} and fast screen \cite{fast_screen} results for the fastq files for the sample. If you need assistance interpreting these QC results please refer to the \nameref{chap:QC} chapter.
+
+
+\section{Data analysis \label{sec:RNAdata_analysis}}
+There are many methods to analyse bulk RNAseq results. The recommendation given here is to utilize a pipeline that was coded in-house and subsequently published in Nucleic Acid Research Bioinformatics. TiSA (TimeSeriesAnalysis) \cite{lefol2023tisa} was originally developed as a means to analyse time series (or longitudinal) bulk RNA count data. It has since been adapted to also be able to analyse non-longitudinal data. This pipeline performs the basics of transcriptomics analysis. Briefly it performs differential gene expression analysis, clustering, and subsequent gene ontology analysis of the found clusters. For more information one can read the NAR Bioinformatics paper (\cite{lefol2023tisa}) or look at the github directly: (\url{https://github.com/Ylefol/TimeSeriesAnalysis}).

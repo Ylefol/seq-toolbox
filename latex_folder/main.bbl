@@ -1,0 +1,146 @@
+\begin{thebibliography}{10}
+
+\bibitem{yan2017bliss}
+Winston~X Yan, Reza Mirzazadeh, Silvano Garnerone, David Scott, Martin~W
+  Schneider, Tomasz Kallas, Joaquin Custodio, Erik Wernersson, Yinqing Li,
+  Linyi Gao, et~al.
+\newblock Bliss is a versatile and quantitative method for genome-wide
+  profiling of dna double-strand breaks.
+\newblock {\em Nature communications}, 8(1):15058, 2017.
+
+\bibitem{bouwman2020genome}
+Britta~AM Bouwman, Federico Agostini, Silvano Garnerone, Giuseppe Petrosino,
+  Henrike~J Gothe, Sergi Sayols, Andreas~E Moor, Shalev Itzkovitz, Magda
+  Bienko, Vassilis Roukos, et~al.
+\newblock Genome-wide detection of dna double-strand breaks by in-suspension
+  bliss.
+\newblock {\em Nature protocols}, 15(12):3894--3941, 2020.
+
+\bibitem{GLOEseq}
+Annie~M Sriramachandran, Giuseppe Petrosino, Mar{\'\i}a M{\'e}ndez-Lago, Axel~J
+  Sch{\"a}fer, Liliana~S Batista-Nascimento, Nicola Zilio, and Helle~D Ulrich.
+\newblock Genome-wide nucleotide-resolution mapping of dna replication
+  patterns, single-strand breaks, and lesions by gloe-seq.
+\newblock {\em Molecular cell}, 78(5):975--985, 2020.
+
+\bibitem{fastqc}
+Simon Andrews.
+\newblock Fastqc.
+\newblock \url{http://www.bioinformatics.babraham.ac.uk/projects/fastqc/},
+  2010.
+
+\bibitem{fast_screen}
+Fast screen.
+\newblock https://www.bioinformatics.babraham.ac.uk/projects/fastq\_screen/.
+
+\bibitem{romiguier2010contrasting}
+Jonathan Romiguier, Vincent Ranwez, Emmanuel~JP Douzery, and Nicolas Galtier.
+\newblock Contrasting gc-content dynamics across 33 mammalian genomes:
+  relationship with life-history traits and chromosome sizes.
+\newblock {\em Genome research}, 20(8):1001--1009, 2010.
+
+\bibitem{sulston1974dna}
+John~E Sulston and Sydney Brenner.
+\newblock The dna of caenorhabditis elegans.
+\newblock {\em Genetics}, 77(1):95--104, 1974.
+
+\bibitem{qualimap}
+Fernando Garc{\'\i}a-Alcalde, Konstantin Okonechnikov, Jos{\'e} Carbonell,
+  Luis~M Cruz, Stefan G{\"o}tz, Sonia Tarazona, Joaqu{\'\i}n Dopazo, Thomas~F
+  Meyer, and Ana Conesa.
+\newblock Qualimap: evaluating next-generation sequencing alignment data.
+\newblock {\em Bioinformatics}, 28(20):2678--2679, 2012.
+
+\bibitem{qualimap2}
+Konstantin Okonechnikov, Ana Conesa, and Fernando Garc{\'\i}a-Alcalde.
+\newblock Qualimap 2: advanced multi-sample quality control for high-throughput
+  sequencing data.
+\newblock {\em Bioinformatics}, 32(2):292--294, 2016.
+
+\bibitem{kunkel2004dna}
+Thomas~A Kunkel.
+\newblock Dna replication fidelity.
+\newblock {\em Journal of Biological Chemistry}, 279(17):16895--16898, 2004.
+
+\bibitem{fazekas2010improving}
+Aron~J Fazekas, Royce Steeves, and Steven~G Newmaster.
+\newblock Improving sequencing quality from pcr products containing long
+  mononucleotide repeats.
+\newblock {\em Biotechniques}, 48(4):277--285, 2010.
+
+\bibitem{bolger2014trimmomatic}
+Anthony~M Bolger, Marc Lohse, and Bjoern Usadel.
+\newblock Trimmomatic: a flexible trimmer for illumina sequence data.
+\newblock {\em Bioinformatics}, 30(15):2114--2120, 2014.
+
+\bibitem{martin2011cutadapt}
+Marcel Martin.
+\newblock Cutadapt removes adapter sequences from high-throughput sequencing
+  reads.
+\newblock {\em EMBnet. journal}, 17(1):10--12, 2011.
+
+\bibitem{krueger2015trim}
+Felix Krueger.
+\newblock Trim galore!: A wrapper around cutadapt and fastqc to consistently
+  apply adapter and quality trimming to fastq files, with extra functionality
+  for rrbs data.
+\newblock {\em Babraham Institute}, 2015.
+
+\bibitem{bwa1}
+Heng Li and Richard Durbin.
+\newblock Fast and accurate short read alignment with burrows--wheeler
+  transform.
+\newblock {\em bioinformatics}, 25(14):1754--1760, 2009.
+
+\bibitem{bwa2}
+Heng Li and Richard Durbin.
+\newblock Fast and accurate long-read alignment with burrows--wheeler
+  transform.
+\newblock {\em Bioinformatics}, 26(5):589--595, 2010.
+
+\bibitem{bowtie2}
+Ben Langmead, Cole Trapnell, Mihai Pop, and Steven~L Salzberg.
+\newblock Ultrafast and memory-efficient alignment of short dna sequences to
+  the human genome.
+\newblock {\em Genome biology}, 10:1--10, 2009.
+
+\bibitem{hisat}
+Daehwan Kim, Ben Langmead, and Steven~L Salzberg.
+\newblock Hisat: a fast spliced aligner with low memory requirements.
+\newblock {\em Nature methods}, 12(4):357--360, 2015.
+
+\bibitem{star}
+Alexander Dobin, Carrie~A Davis, Felix Schlesinger, Jorg Drenkow, Chris
+  Zaleski, Sonali Jha, Philippe Batut, Mark Chaisson, and Thomas~R Gingeras.
+\newblock Star: ultrafast universal rna-seq aligner.
+\newblock {\em Bioinformatics}, 29(1):15--21, 2013.
+
+\bibitem{musich2021comparison}
+Ryan Musich, Lance Cadle-Davidson, and Michael~V Osier.
+\newblock Comparison of short-read sequence aligners indicates strengths and
+  weaknesses for biologists to consider.
+\newblock {\em Frontiers in Plant Science}, 12:657240, 2021.
+
+\bibitem{amemiya2019encode}
+HM~Amemiya, A~Kundaje, and AP~Boyle.
+\newblock The encode blacklist: identification of problematic regions of the
+  genome. sci. rep. 9, 9354, 2019.
+
+\bibitem{li2009sequence}
+Heng Li, Bob Handsaker, Alec Wysoker, Tim Fennell, Jue Ruan, Nils Homer, Gabor
+  Marth, Goncalo Abecasis, Richard Durbin, and 1000 Genome Project
+  Data~Processing Subgroup.
+\newblock The sequence alignment/map format and samtools.
+\newblock {\em bioinformatics}, 25(16):2078--2079, 2009.
+
+\bibitem{MACS3}
+Tao Liu and Philippa Doherty.
+\newblock Macs: Model-based analysis for chip-seq.
+\newblock \url{https://macs3-project.github.io/MACS/index.html}, 2024.
+
+\bibitem{Glogg}
+Nicolas Bonnefon.
+\newblock glogg - the fast, smart log explorer.
+\newblock \url{https://glogg.bonnefon.org/}, 2016.
+
+\end{thebibliography}

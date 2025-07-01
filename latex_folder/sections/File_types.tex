@@ -1,0 +1,21 @@
+\mychapter{8}{File types} 
+\label{chap:File_types}
+Several file types exist. Note that many of these are massive files that should not be opened (double clicked). If you are curious about their content, which may be usefull for checking the format, you can use a tool such as Glogg which allows you to visualize large text based files \autoref{sec:glogg}.
+
+\section{Fastq files \label{sec:Fastq_files}}
+At it's core Fastq files are a text based format to store biological sequenced. This format was created to merge FASTA files and their associated quality metrics into a single file. Note that FASTA (or .fa) formats are also text based files but they are meant to only contain an identifier and a sequence. Looking at the example below, a FASTA format would not contain the information found between the colons on the first line.
+\begin{formal}
+\hlgreen{@HWI-ST1276:71:C1162ACXX:1:1101:1208:2458 1:N:0:CGATGT}\\ 
+\hlorange{NAAGAACACGTTCGGTCACCTCAGCACACTTGTGAATGTCATGGGATCCAT}\\
++\\
+\hlblue{\#55???BBBBB?BA@DEEFFCFFHHFFCFFHHHHHHHFAE0ECFFD/AEHH}
+\end{formal}
+The example above is from a random NOVOGENE sequenced file. In green we see the header with the @ preceding the identifier, this is followed by information concerning the machine: HWI-ST1276 is the unique identifier of the sequencer used. 71 refers to the run number on the instrument. C1162ACXX is the identifier for the flow cell, 1 is the lane number, 1101 is the tile number. The x and y coordinates of the tile are 1208 and 2458 respectively. The 1 is the number of reads, this can also be 2 in the event of paired-end sequencing. N (or Y) stands for Yes/No depending on if the read passed filtering or not (QC). 0 shows the number of control bits. Finally CGATGT is the illumina index sequences. In some instances we also have a length of read given after the header.\\
+The sequenced read is shown in orange\\
+Following the `+'  indicating that the information that follows is associated to the previously observed header. Some machines/protocols have the same header appended after the `+'. What follows the `+' is the quality values (in blue). These quality values are not meant to be readable by humans.\\
+As previously stated, not all fastq files are formatted the same way, due to this it is important to understand the general layout of the files, but also know which machine produced the files and search exactly what that machine has produced.
+
+\section{BAM and SAM files \label{sec:BAM_files}}
+BAM stands for Binary Alignment Map, generally we obtain BAM files once a fastq file has been mapped (see \autoref{sec:mapping}). BAM is the condensed version of a SAM file (Sequence Alignment Map), with this in mind it makes more sense that BAM relates to mapped files. In computer science a condensed version essentially translates to a more light-weight (in terms of bytes) file.\\
+A BAM file is (or should be) accompanied by a indexing file. Having an indexing file allows the computer to quickly find specific locations in the file. In essence when looking for something it immediately narrows down the search area in the file as opposed to having to look through the entire file every time. The indexing can be identified as having the same name as the bam file, but followed by a `.bai'\\
+Note that BAM files are often large files and therefore should not be opened manually opened (double-clicked). In addition it is a compressed file so the text inside will not be understood by humans.

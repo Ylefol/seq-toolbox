@@ -1,0 +1,21 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Global organizational chart for \gls {NTNU}\relax }}{7}{figure.caption.5}%
+\contentsline {figure}{\numberline {2}{\ignorespaces A Venn diagram illustrating the skills required for the field of bioinformatics along with the other affiliated fields.\relax }}{8}{figure.caption.6}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Illustration of the different phases of the cell cycle. The outer arrow represents the start/end of a cycle.\relax }}{10}{figure.caption.7}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Illustration of the single cell sequencing technology\relax }}{11}{figure.caption.8}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Illustration of a simplified version of the central dogma of biology\relax }}{12}{figure.caption.9}%
+\contentsline {figure}{\numberline {6}{\ignorespaces An illustrated \gls {PCA} which shows how phase angle boundaries are determined. The circles represent the clusters that are used to calculate the phase angle boundaries (dashed lines).\relax }}{13}{figure.caption.10}%
+\contentsline {figure}{\numberline {7}{\ignorespaces A visual representation of a loom file\relax }}{15}{figure.caption.11}%
+\contentsline {figure}{\numberline {8}{\ignorespaces A GANTT chart summary which shows the expected time for each main task (blue) and the actual time used (black).\relax }}{21}{figure.caption.12}%
+\contentsline {figure}{\numberline {9}{\ignorespaces A series of \gls {PCA} plots representing the steps taken to associate the proper cell cycle phase to each cell of the dataset. Each point shows a specific cell with it's associated phase (based on the color).\relax }}{23}{figure.caption.13}%
+\contentsline {figure}{\numberline {10}{\ignorespaces A plot representing the velocity field of the dataset, where the velocity arrows show the predicted direction and estimated speed of the cells. Each point represents a cell, the color is indicative of the phase that cell has been associated to.\relax }}{24}{figure.caption.14}%
+\contentsline {figure}{\numberline {11}{\ignorespaces The three plots generated to enable the creation of a control group through visual aid. In (a), each point represents the expression level of either a unspliced gene (pre-\gls {mRNA}) or spliced gene (mature \gls {mRNA}) in a single cell. In the (b), the smoothed velocity of a gene's unspliced and spliced data is shown. In (a) and (b) a horizontal line can be observed, this serves as an indication of the cell cycle phase in which the data points are represented. In the third plot (c) the blue cells represent G1 cells, green cells are S cells and orange cells are \gls {G2M} cells\relax }}{25}{figure.caption.15}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Initial PCA}}}{25}{subfigure.9.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Filtered PCA}}}{25}{subfigure.9.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {PCA after reassignment}}}{25}{subfigure.9.3}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{25}{subfigure.11.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{25}{subfigure.11.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{25}{subfigure.11.3}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Illustration of DNA directionality\relax }}{26}{figure.caption.16}%
+\contentsline {figure}{\numberline {13}{\ignorespaces PyDoc example.\relax }}{28}{figure.caption.17}%
+\contentsline {figure}{\numberline {14}{\ignorespaces The title and authors of the draft manuscript.\relax }}{29}{figure.caption.18}%
+\contentsline {figure}{\numberline {15}{\ignorespaces The full GANTT chart where the grey boxes represent the planned time-frame, the blue boxes represent the actual time used, and the black bars are the sum of the blue bars.\relax }}{32}{figure.caption.20}%
