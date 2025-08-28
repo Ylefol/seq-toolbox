@@ -45,34 +45,34 @@ start=`date +%s`
 ################################################################################
 read blacklisted_region effective_genome_size ref_genome < <("$script_dir"bin/set_refgen.sh $genome)
 
-
 #FASTQC and FAST_SCREEN
 ################################################################################
 
-"$script_dir"bin/fastqc_fastscreen.sh $r1 $QC_out
-if [ $numb_of_files == 2 ]; then
-	"$script_dir"bin/fastqc_fastscreen.sh $r2 $QC_out
-fi
+#"$script_dir"bin/fastqc_fastscreen.sh $r1 $QC_out
+#if [ $numb_of_files == 2 ]; then
+#	"$script_dir"bin/fastqc_fastscreen.sh $r2 $QC_out
+#fi
 
 
 #TRIMMOMATIC SE AND PE
 ################################################################################
-trim_file="All_adapters.fa"
-trim_file="$script_dir"trimmomatic_files/"$trim_file"
+#trim_file="All_adapters.fa"
+#trim_file="$script_dir"trimmomatic_files/"$trim_file"
 
-"$script_dir"bin/trimmomatic.sh $r1 $r2 $out $experiment $trim_file
+#"$script_dir"bin/trimmomatic.sh $r1 $r2 $out $experiment $trim_file $QC_out
 
-trim_1=$out/$experiment"_trimmed.fastq.gz"
-trim_2="NONE" #Temporary name allocation
-if [ $numb_of_files == 2 ]; then
-	trim_1=$out/$experiment"_trimmed_paired_r1.fastq.gz"
-	trim_2=$out/$experiment"_trimmed_paired_r2.fastq.gz"
-fi
+#trim_1=$out/$experiment"_trimmed.fastq.gz"
+#trim_2="NONE" #Temporary name allocation
+#if [ $numb_of_files == 2 ]; then
+#	trim_1=$out/$experiment"_trimmed_paired_r1.fastq.gz"
+#	trim_2=$out/$experiment"_trimmed_paired_r2.fastq.gz"
+#fi
 
 
 #Mapping with Bowtie2 and conversion to BAM
 ################################################################################
-
+trim_1="/media/yohanl/Expansion/seq-processing/Lisa_5hmu/results_T2T"/$experiment/"outdata"/$experiment"_trimmed_paired_r1.fastq.gz"
+trim_2="/media/yohanl/Expansion/seq-processing/Lisa_5hmu/results_T2T"/$experiment/"outdata"/$experiment"_trimmed_paired_r2.fastq.gz"
 "$script_dir"bin/bowtie2.sh $trim_1 $trim_2 $experiment $out $ref_genome $numbproc
 
 

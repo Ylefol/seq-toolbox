@@ -3,11 +3,13 @@
 #Set start time
 start=`date +%s`
 
-#!/usr/bin/env bash
-# save as summarize_barcodes.sh and run with: bash summarize_barcodes.sh /path/to/dir
-
 DIR="$1"
-OUTFILE="barcode_counts.txt"
+OUTFILE=$DIR/"barcode_counts.txt"
+
+#Set start time
+start=`date +%s`
+
+echo "Running sample barcode finder, results will be stored in the provided data directory"
 
 # write header
 echo -e "filename\tcount\tbarcode" > "$OUTFILE"
@@ -16,8 +18,16 @@ echo -e "filename\tcount\tbarcode" > "$OUTFILE"
 for f in "$DIR"/*.fastq.gz; do
   # skip if no files match
   [[ -e "$f" ]] || continue
-  echo "Checking $f"
-  # compute most‐common 8‐mer (pos 8–15) and its count
+
+  base=$(basename "$f")
+
+  # if it ends with _2.fastq.gz, skip it
+  if [[ "$base" == *_2.fastq.gz ]]; then
+    echo "Skipping $base" >&2
+    continue
+  fi
+  echo "Processing $base"
+  # otherwise (ends in _1 or anything else), process it
   read count barcode < <(
     zcat "$f" \
       | awk 'NR%4==2 { c=substr($0,8,8); counts[c]++ }
@@ -26,10 +36,13 @@ for f in "$DIR"/*.fastq.gz; do
       | head -n1
   )
 
-  # append filename (basename), count and barcode
-  echo -e "$(basename "$f")\t${count:-0}\t${barcode:-NA}" >> "$OUTFILE"
+  # append filename, count and barcode (defaulting to 0/NA if none)
+  echo -e "${base}\t${count:-0}\t${barcode:-NA}" >> "$OUTFILE"
 done
 
+end=`date +%s`
+
+runtime=$((end-start))
 
 echo "Took $runtime seconds"
 

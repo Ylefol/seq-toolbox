@@ -13,6 +13,7 @@ numbproc=$6			# set the desired number of threads to be used while mapping to re
 # PREPARE DIRECTORY STRUCTURE
 datadir=./results && mkdir -p $datadir/$experiment
 finalRes=$datadir/$experiment/peaks_bw_bed && mkdir -p $finalRes
+in=$datadir/$experiment/indata && mkdir -p $out
 out=$datadir/$experiment/outdata && mkdir -p $out
 aux=$datadir/$experiment/auxdata && mkdir -p $aux
 # create a folder for QC results
@@ -44,16 +45,16 @@ start=`date +%s`
 
 #set genome references, blacklists, and effectivegenomesize
 ################################################################################
-read blacklisted_region effective_genome_size ref_genome < <("$script_dir"bin/set_refgen.sh $genome)
+read blacklisted_region effective_genome_size ref_genome < <("$script_dir"bin/set_refgen.sh $genome 'bwa')
 
 
 #FASTQC and FAST_SCREEN
 ################################################################################
 
-"$script_dir"bin/fastqc_fastscreen.sh $r1 $QC_out
-if [ $numb_of_files == 2 ]; then
-	"$script_dir"bin/fastqc_fastscreen.sh $r2 $QC_out
-fi
+#"$script_dir"bin/fastqc_fastscreen.sh $r1 $QC_out
+#if [ $numb_of_files == 2 ]; then
+	#"$script_dir"bin/fastqc_fastscreen.sh $r2 $QC_out
+#fi
 
 
 # Mapping and formatting output
@@ -114,15 +115,15 @@ cat $out/q"$quality"_chr-loc-strand-umi-pcr |
 #Clean and format directory
 ################################################################################
 #Delete unneeded folders and files
-rm -r "$in"*
-rm -r "$aux"*
+#rm -r "$in"*
+#rm -r "$aux"*
 rm $out/filtered.r1.fa
 rm $out/_q60.bed
 rm $out/q60_aux
 
 #Move results from outdata folder to results folder (outdata is contained within results but it no longer necessary at the end of the pipeline run)
 mv "$out"/* $datadir/$experiment/
-rm -r "$out"* 
+#rm -r "$out"* 
 
 #Bit of extra sorting
 extra_out=$datadir/$experiment/extra_files && mkdir -p $extra_out
